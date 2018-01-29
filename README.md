@@ -12,11 +12,11 @@
 ### Homepage
 ![homepage](public/images/home.png)
 ### Countries
+When component mounts, a request is sent to the server for a full list of countries, and the page displays all country names in Link components.
 ![list of countries](public/images/countries.png)
 ### Individual Country Page
+When component mounts, a request is sent to the server for the information about the specific country selected using the two-letter country code.
 ![alt text](public/images/country.png)
-### About Page
-![alt text](public/images/about.png)
 
 ## Technologies Used
 * React
@@ -53,7 +53,7 @@ export function getCountries() {
 }
 ```
 
-Functions making API requests in Redux are made available as props through the React-Redux connect() method. They are called from individual components in the life cycle method componentDidMount().
+Functions making API requests in Redux are made available as props through the React-Redux `connect()` method. They are called from individual components in the life cycle method `componentDidMount()`.
 
 ```
 componentDidMount() {
