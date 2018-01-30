@@ -1,7 +1,9 @@
+//Dependencies
 import React from 'react';
 import Navbar from './Navbar';
 import { Switch, Route } from 'react-router';
 
+//Components
 import Home from './Home';
 import Countries from './Countries';
 import About from './About';

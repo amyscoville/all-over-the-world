@@ -5,8 +5,6 @@ import { getCountry } from '../../../redux/country.js';
 import GoogleApiWrapper from './MapContainer';
 import './Country.css';
 
-
-
 class Country extends Component {
     constructor(props) {
         super(props);
@@ -28,6 +26,7 @@ class Country extends Component {
         })
     }
 
+    //Display data about currencies in full sentence
     toCurrencyString(currencies, countryName) {
         let currStr = `People in ${countryName} use the `;
         if (currencies.length === 1) {
@@ -47,6 +46,7 @@ class Country extends Component {
         return currStr;
     }
 
+    //Display languages spoken in a full sentence.
     toLanguageString(languages, countryName) {
         let langStr = `People in ${countryName} speak `;
         if (languages.length === 1) {
@@ -65,6 +65,7 @@ class Country extends Component {
         return langStr;
     }
 
+    //Address the issue that some countries (Antarctica, for example) do not have a capital city.
     capitalCity(capital, countryName) {
         if(capital) {
             return `The capital of ${countryName} is ${capital}`
@@ -77,6 +78,7 @@ class Country extends Component {
         let { country } = this.props;
         let { loading } = this.state;
         return (
+            //only display component if data has been received from the API
             !loading ?
                 <div className='country-wrapper'>
                     <h1 className='area name'>{country.name}</h1>
