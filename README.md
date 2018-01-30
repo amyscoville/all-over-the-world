@@ -63,9 +63,7 @@ componentDidMount() {
 
 ## Challenges and Insights
 
-One of the most challenging aspects of this project was conceptualizing the flow of the asynchronous requests in Redux and rendering the data from those requests in the React components. I needed to load the component, make the request on mount, but delay displaying the page until the data had been received in Redux and passed into the component. In the Country component, I ran into an issue with the previously-clicked component displaying for a split second while the new country's data was requested. Once the data was received, the page would update, but it was really unpleasant to see the previous country flash on the screen every time the user navigated to a country page. I used `componentWillReceiveProps()` and the local `state` to indicate whether the component should render the data or display "loading" while it waited to receive new data. 
-
-Another challenge I faced was displaying language and currencies in the `Country` component. Data about languages and currencies for each country comes in an array of objects. The sentence structure needed to change based on the length of the array. I decided to use JavaScript to manipulate the data and return nicely formed sentences:
+One challenge I faced during this project was displaying language and currencies in the `Country` component. Data about languages and currencies for each country comes in an array of objects. The sentence structure needed to change based on the length of the array. I used JavaScript to manipulate the data and return nicely formed sentences:
 
 ```
 toCurrencyString(currencies, countryName) {
@@ -87,7 +85,9 @@ toCurrencyString(currencies, countryName) {
 }
 ```
 
-With each of these challenges, I looked first to other assignments I had completed or lessons I had followed in my coursework to see if there was a solution to a similar problem in there. I then turned to Google, and if I didn't find a solution there, I asked classmates. In one situation I eventually asked an instructor for help. He hadn't encountered an issue identical to mine, so we worked through finding an elegant solution together. I learned that in many cases, there is not a single "right" solution, but there are a few ways to approach an issue. I also came to realize that while time spent searching for a solution can feel like wasted time, the process itself can provide valuable learning for future projects.
+One of the most challenging aspects of this project was conceptualizing the flow of the asynchronous requests in Redux and rendering the data from those requests in the React components. I needed to load the component, make the request when the component mounted, but delay displaying the page until the data had been received in Redux and passed into the component. In the `Country` component, I ran into an issue with the previously-clicked country's data displaying for a split second while the new country's data was requested. Once the data was received, the page would update, but it was really unpleasant to see the previous country flash on the screen every time the user navigated to a country page. I used `componentWillReceiveProps()` and the local `state` to indicate whether the component should render the data or display "loading" while it waited to receive new data. 
+
+While trying to solve this issue, I first reviewed past assignments and lessons to see if there was a similar solution in there. I then used Google, asked a classmate, and finally an instructor for help. It was frustrating to spend so much time looking for a solution when my instructor was immediately able to answer my question once I asked. However frustrating, this experience taught me that while time spent searching for a solution can feel like wasted time, the process itself is valuable to my learning. Having a solution handed to me at the first sign of struggle would have allowed me to move forward more quickly with my application, but spending time in the struggle required me to use my problem solving skills, try possible solutions and identify why they didn't work, and push myself a little harder.
 
 ### Other Information
 
