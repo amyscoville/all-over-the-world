@@ -29,17 +29,17 @@ class Country extends Component {
     }
 
     toCurrencyString(currencies, countryName) {
-        let currStr = `People in ${countryName} use `;
+        let currStr = `People in ${countryName} use the `;
         if (currencies.length === 1) {
-            currStr += `the ${currencies[0].name} to buy things.`;
+            currStr += `${currencies[0].name} to buy things.`;
         } else if(currencies.length === 2) {
-            currStr += `the ${currencies[0].name} and the ${currencies[1].name} to buy things.`;
+            currStr += `${currencies[0].name} and the ${currencies[1].name} to buy things.`;
         } else if(currencies.length > 2) {
             for(let i = 0; i < currencies.length; i++) {
                 if (i === currencies.length - 1) {
                     currStr += ` and the ${currencies[i].name} to buy things.`;
                 } else if (i < currencies.length - 1) {
-                    currStr += `the ${currencies[i].name}, `;
+                    currStr += `${currencies[i].name}, `;
                 }
  
             }
