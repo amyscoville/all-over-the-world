@@ -13,7 +13,7 @@
 ![homepage](public/images/home.png)
 
 ### Countries
-When component mounts, a request is sent to the server for a full list of countries, and the page displays all country names in Link components.
+When component mounts, a request is sent to `https://restcountries.eu/rest/v2/all` for a full list of countries, and the page displays all country names in Link components.
 
 ![list of countries](public/images/countries.png)
 
@@ -63,9 +63,9 @@ componentDidMount() {
 
 ## Challenges and Insights
 
-One of the most challenging aspects of this project was conceptualizing the flow of the asynchronous requests in Redux and rendering the data from those requests in the React components. I needed to load the component, make the request on mount, but delay displaying the page until the data had been received in Redux and passed into the component. In the Country component, I ran into an issue with the previously-clicked component displaying for a split second while the new country's data was requested. Once the data was received, the page would update, but it was really unpleasant to see the previous country flash on the screen every time the user navigated to a country page. I used `componentWillReceiveProps` and the local `state` to indicate whether the component should render the data or display "loading" while it waited to receive new data. 
+One of the most challenging aspects of this project was conceptualizing the flow of the asynchronous requests in Redux and rendering the data from those requests in the React components. I needed to load the component, make the request on mount, but delay displaying the page until the data had been received in Redux and passed into the component. In the Country component, I ran into an issue with the previously-clicked component displaying for a split second while the new country's data was requested. Once the data was received, the page would update, but it was really unpleasant to see the previous country flash on the screen every time the user navigated to a country page. I used `componentWillReceiveProps()` and the local `state` to indicate whether the component should render the data or display "loading" while it waited to receive new data. 
 
-Another challenge I faced was displaying language and currencies in the Country component. Data about languages and currencies for each country comes in an array of objects. The sentence structure needed to change based on the length of the array. I decided to use JavaScript to manipulate the data and return nicely formed sentences:
+Another challenge I faced was displaying language and currencies in the `Country` component. Data about languages and currencies for each country comes in an array of objects. The sentence structure needed to change based on the length of the array. I decided to use JavaScript to manipulate the data and return nicely formed sentences:
 
 ```
 toCurrencyString(currencies, countryName) {
@@ -87,9 +87,7 @@ toCurrencyString(currencies, countryName) {
 }
 ```
 
-A final challenge came when I chose to make the addition of a Google Map to the page. I installed the `google-maps-react` package to simplify the process. Reading the documentation taught me how to adjust the zoom and add other features, but I couldn't find an answer to why the width was not changing when I made adjustments to it. I used `!important` in the CSS to override the map's inherent styling and adjust the width to my specifications.
-
-With each of these challenges, I looked first to other assignments I had completed or lessons I had followed in my coursework to see if there was a solution to a similar problem in there. I then turned to Google, and if I didn't find a solution there, I asked classmates. In one situation I eventually asked an instructor for help. He hadn't encountered an issue identical to mine, so we worked through finding an elegant solution together. I learned that in many cases, there is not a single "right" solution, but there are a few ways to approach an issue. I also came to realize that while time spent searching for a solution can feel like wasted time, the process and the struggle can provide valuable learning for future projects.
+With each of these challenges, I looked first to other assignments I had completed or lessons I had followed in my coursework to see if there was a solution to a similar problem in there. I then turned to Google, and if I didn't find a solution there, I asked classmates. In one situation I eventually asked an instructor for help. He hadn't encountered an issue identical to mine, so we worked through finding an elegant solution together. I learned that in many cases, there is not a single "right" solution, but there are a few ways to approach an issue. I also came to realize that while time spent searching for a solution can feel like wasted time, the process itself can provide valuable learning for future projects.
 
 ### Other Information
 
